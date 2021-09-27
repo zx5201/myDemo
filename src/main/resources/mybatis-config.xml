@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <settings>
+        <!-- 打开延迟加载的开关 -->
+<!--        <setting name="lazyLoadingEnabled" value="true" />-->
+<!--        &lt;!&ndash; 将积极加载改为消极加载  按需加载 &ndash;&gt;-->
+<!--        <setting name="aggressiveLazyLoading" value="false"/>-->
+
+        <setting name="mapUnderscoreToCamelCase" value="true"/><!--开启自动驼峰-->
+    </settings>
+<!--    <properties resource="org/mybatis/example/config.properties">-->
+<!--        <property name="username" value="dev_user"/>-->
+<!--        <property name="password" value="F2Fa3!33TYyg"/>-->
+<!--    </properties>-->
+    <environments default="development">
+        <environment id="development">
+            <!-- 事务管理 -->
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://localhost/test?useUnicode=True&amp;serverTimezone=UTC&amp;
+                characterEncoding=UTF-8&amp;useSSL=true"/>
+                <property name="username" value="root"/>
+                <property name="password" value="123456"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <!-- 每一个mapper.xml都需要到这里来注册-->
+<!--    <typeAliases> &lt;!&ndash; 类型取别名 &ndash;&gt;-->
+
+<!--    </typeAliases>-->
+    <mappers>
+                <mapper resource="dao/UserDao.xml"></mapper>
+<!--        <package name="dao"/>-->
+    </mappers>
+</configuration>
